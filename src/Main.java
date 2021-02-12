@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -6,6 +7,7 @@ public class Main {
         //Random rand = new Random();
         Boolean correct = false;
         Boolean passed_level = false;
+        Boolean valid_response = false;
         //https://stackoverflow.com/questions/29323116/how-to-use-the-same-scanner-across-multiple-classes-in-java#:~:text=Simply%20use%20public%20static%20final,arguments%20you%20pass%20to%20Scanner.
         //public static final Scanner input = new Scanner(System.in);//access with MainClassName.input
 
@@ -22,31 +24,45 @@ public class Main {
         //System.out.println("rand_int4: "+ rand_int4);
 
         Scanner input = new Scanner(System.in);
-        while(!passed_level) {
+        while (!passed_level) {
             int count = 0;
+            int response = 0;
             for (int i = 0; i < 5; i++) {
                 RandNumber num = new RandNumber();
                 System.out.print("1 + " + num.getRand() + " = ");
-                int response = input.nextInt();
+                while (!valid_response) {
+                    if (input.hasNextInt()) {
+                        response = input.nextInt();
+                        valid_response = true;
+                    } else {
+                        input.next();
+                        System.out.println("Enter number");
+                    }
+                }
+
                 if (response == 1 + num.getRand()) {
                     correct = true;
                     count++;
                     System.out.println("Correct");
+                    valid_response = false;
 
                 } else {
                     System.out.println("Wrong");
+                    valid_response = false;
                 }
             }
+
             if (count > 3) {
                 System.out.println("Level passed!");
                 passed_level = true;
-            }else {
+            } else {
+
                 System.out.println("Let's practice more.");
+
             }
         }
 
 
-
-
     }
+
 }
