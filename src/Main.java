@@ -10,10 +10,17 @@ public class Main {
 
         int startingLvl = level.getCurrentLevel();
         level.addLevel();
-        int nextLvl = level.getCurrentLevel();
+        int nextLvlAdd = level.getCurrentLevel();
         System.out.println("new level: "+ level.getCurrentLevel());
-        AddLevel1 level2 = new AddLevel1(nextLvl);
+        AddLevel1 level2 = new AddLevel1(nextLvlAdd);
         level2.addLevel();
+
+        SubLevel sLevel =  new SubLevel();
+        sLevel.subLevel();
+        int nextLvlSub = sLevel.getCurrentLevel();
+        System.out.println("new level: " + sLevel.getCurrentLevel());
+        SubLevel sLevel2 = new SubLevel(nextLvlSub);
+        sLevel2.subLevel();
     //}
 
     }

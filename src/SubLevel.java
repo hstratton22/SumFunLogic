@@ -1,48 +1,27 @@
 import java.util.Scanner;
 
-public class AddLevel1 {
-    //Random rand = new Random();
+public class SubLevel {
     Boolean correct = false;
     Boolean passed_level = false;
     Boolean valid_response = false;
     int currentLevel = 1;
     int currentStage = 1;
 
-    public AddLevel1() {
+    public SubLevel() {
 
     }
+    public SubLevel(int cLevel){
+        this.currentLevel= cLevel;
 
-    public AddLevel1(int cLevel) {
-        this.currentLevel = cLevel;
     }
-
-    //https://stackoverflow.com/questions/29323116/how-to-use-the-same-scanner-across-multiple-classes-in-java#:~:text=Simply%20use%20public%20static%20final,arguments%20you%20pass%20to%20Scanner.
-    //public static final Scanner input = new Scanner(System.in);//access with MainClassName.input
-
-    //int rand_int1 = rand.nextInt(10);
-    //int rand_int2 = rand.nextInt(100);
-
-    //returns a double value with a positive sign, greater than or equal to 0.0 and less than 1.0
-    //int rand_int3 = (int)(Math.random()*100);
-    //int rand_int4 = (int)(Math.random()*10);
-
-    //System.out.println("rand_int1: "+rand_int1);
-    //System.out.println("rand_int2: " +rand_int2);
-    //System.out.println("rand_int3: "+ rand_int3);
-    //System.out.println("rand_int4: "+ rand_int4);
-    /*public int curLvl() {
-        return 1;
-    }
-    */
-
-    public void addLevel() {
+    public void subLevel(){
         Scanner input = new Scanner(System.in);
         while (!passed_level) {
             int count = 0;
             int response = 0;
             for (int i = 0; i < 5; i++) {
                 RandNumber num = new RandNumber();
-                System.out.print(currentLevel + " + " + num.getRand() + " = ");
+                System.out.print((currentLevel*10) + " - " + num.getRand() + " = ");
                 while (!valid_response) {
                     if (input.hasNextInt()) {
                         response = input.nextInt();
@@ -53,7 +32,7 @@ public class AddLevel1 {
                     }
                 }
 
-                if (response == currentLevel + num.getRand()) {
+                if (response == (currentLevel*10) - num.getRand()) {
                     correct = true;
                     count++;
                     System.out.println("Correct");
@@ -82,9 +61,6 @@ public class AddLevel1 {
 
     }
 
-    /**
-     * Getters and Setters
-     */
     public Boolean getCorrect() {
         return correct;
     }
@@ -117,5 +93,11 @@ public class AddLevel1 {
         this.currentLevel = currentLevel;
     }
 
+    public int getCurrentStage() {
+        return currentStage;
+    }
 
+    public void setCurrentStage(int currentStage) {
+        this.currentStage = currentStage;
+    }
 }
