@@ -30,10 +30,8 @@ public class AddLevel1 {
     //System.out.println("rand_int2: " +rand_int2);
     //System.out.println("rand_int3: "+ rand_int3);
     //System.out.println("rand_int4: "+ rand_int4);
-    /*public int curLvl() {
-        return 1;
-    }
-    */
+
+
 
     public void addLevel() {
         Scanner input = new Scanner(System.in);
@@ -116,6 +114,46 @@ public class AddLevel1 {
     public void setCurrentLevel(int currentLevel) {
         this.currentLevel = currentLevel;
     }
+    /*
+    teacher example
+    public void saveFile(View view) {
+    try {
+        Data data = new Data(param1.getText().toString(),
+                param2.getText().toString(),
+                param3.getText().toString());
+
+        Gson gson = new Gson();
+        String json = gson.toJson(data);
+
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(openFileOutput("ParamFile.txt", Context.MODE_PRIVATE)));
+        writer.write(json);
+        writer.close();
+        fileContents.setText("Wrote data to ParamFile.txt");
+    }
+    catch (IOException ioe) {
+        fileContents.setText("Unable to save to ParamFile.txt");
+        Log.d("files",ioe.toString());
+    }
+}
+
+public void loadFile(View view) {
+    try {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(openFileInput("ParamFile.txt")));
+        String json = reader.readLine();
+        reader.close();
+
+        Gson gson = new Gson();
+        Data data = gson.fromJson(json, Data.class);
+        fileContents.setText(data.toString());
+    }
+    catch (IOException ioe) {
+        fileContents.setText("Unable to load from ParamFile.txt");
+        Log.d("files",ioe.toString());
+
+    }
+}
+
+     */
 
 
 }
